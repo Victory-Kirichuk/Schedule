@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/newSeries"
+            android:icon="@drawable/newseries"
+            android:title="@string/newseries" />
+        <item
+            android:id="@+id/schedule"
+            android:icon="@drawable/schedule"
+            android:title="@string/schedule" />
+        <item
+            android:id="@+id/myseries"
+            android:icon="@drawable/myseries"
+            android:title="@string/myseries" />
+
+    </group>
+
+    <item android:title="@string/devider">
+        <menu>
+            <item
+                android:id="@+id/catalog"
+                android:icon="@drawable/catalog"
+                android:title="@string/catalog" />
+            <item
+                android:id="@+id/top"
+                android:icon="@drawable/top"
+                android:title="@string/top" />
+        </menu>
+    </item>
+
+</menu>

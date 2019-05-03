@@ -11,7 +11,7 @@
 
     <string name="newseries">Новые серии</string>
     <string name="schedule">Мое расписание</string>
-    <string name="myseries"> Мои сериалы</string>
+
     <string name="catalog">Каталог</string>
     <string name="top">Топ 50</string>
     <string name="title_activity_login">Sign in</string>
@@ -31,4 +31,7 @@
     <string name="register">Register</string>
     <string name="sign_in">Sign In</string>
     <string name="password">Password</string>
+    <string name="title_activity_after">AfterActivity</string>
+    <string name="myseries">Мои сериалы</string>
+    <string name="devider">Общее</string>
 </resources>
