@@ -34,4 +34,6 @@
     <string name="title_activity_after">AfterActivity</string>
     <string name="myseries">Мои сериалы</string>
     <string name="devider">Общее</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="logout">Logout</string>
 </resources>

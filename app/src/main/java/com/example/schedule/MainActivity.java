@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.schedule.fragments.CatalogFragment;
 import com.example.schedule.fragments.MySeriesFragment;
@@ -21,9 +22,12 @@ import com.example.schedule.fragments.NewSeriesFragment;
 import com.example.schedule.fragments.ScheduleFragment;
 import com.example.schedule.fragments.TopFragment;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+
+import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,10 +36,13 @@ public class MainActivity extends AppCompatActivity
     TopFragment topFragment;
     CatalogFragment catalogFragment;
     MySeriesFragment mySeriesFragment;
-    private ArrayList<String> AllSeries = new ArrayList<>();
+    // private ArrayList<String> AllSeries = new ArrayList<>();
     // ListView ListAllSeries;
     private FirebaseAuth mAuth;
+    private FirebaseUser firebaseUser;
     private FirebaseFirestore myRef;
+    TextView emailProfile;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +74,10 @@ public class MainActivity extends AppCompatActivity
         topFragment = new TopFragment();
         catalogFragment = new CatalogFragment();
         mySeriesFragment = new MySeriesFragment();
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
+
+
         // ListAllSeries = (ListView) findViewById(R.id.allseries);
 //      myRef= FirebaseFirestore.getInstance();
 //
@@ -112,8 +123,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.logout) {
+            //todo
         }
 
         return super.onOptionsItemSelected(item);
@@ -127,15 +138,20 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         if (id == R.id.catalog) {
+            setTitle("Каталог");
             fragmentTransaction.replace(R.id.container, catalogFragment);
         } else if (id == R.id.schedule) {
+            setTitle("Расписание");
             fragmentTransaction.replace(R.id.container, scheduleFragment);
 
         } else if (id == R.id.top) {
+            setTitle("Лучшие");
             fragmentTransaction.replace(R.id.container, topFragment);
         } else if (id == R.id.myseries) {
+            setTitle("Мои сериалы");
             fragmentTransaction.replace(R.id.container, mySeriesFragment);
         } else if (id == R.id.newSeries) {
+            setTitle("Новое");
             fragmentTransaction.replace(R.id.container, newSeriesFragment);
         }
         fragmentTransaction.commit();
